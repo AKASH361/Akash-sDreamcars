@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari 812 Superfast</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        .grid-container{
+            background-image: url('ferrari.jpg');
+            color: rgb(255, 255, 255);
+            text-shadow: 0 0 10px rgb(0, 0, 0);
+        }
+        .reveal, .reveal-2 {
+            color: rgb(105, 105, 105);
+            text-shadow: 0 0 10px rgb(0, 0, 0); /* Adding text glow */
+        }
+    </style>
+    <div class="grid-container">
+            <video id="backgroundVideo" loop>
+                <source src="https://firebasestorage.googleapis.com/v0/b/akashsdreamcars.appspot.com/o/ferrari.mp4?alt=media&token=84b44672-0185-4997-99f0-82784ec4524f" type="video/mp4">
+                <!-- Add additional source elements for other video formats (e.g., WebM, Ogg) -->
+                Your browser does not support the video element.
+            </video>
+            <nav class="slide-down">
+                <span id="logo">Dream Cars</span></a>
+                <a href="index.html"><span>Porsche 911 Turbo S</span></a>
+                <a href="lambohuracan.html"><span>Lamborghini Huracan RWD</span></a>
+                <a href="720s.html"><span>McLaren 720S</span></a>
+                <a href="ferrari.html"><span>Ferrari 812 Superfast</span></a>
+                <a href="pagani.html"><span>Pagani Huayra BC</span></a>
+                <a href="jesko.html"><span>Koenigsegg Jesko Absolut</span></a>
+            </nav>
+        <!-- Left Arrow -->
+        <div class="arrow left" onclick="scroll_left()">&#9665;</div>
+            
+        <!-- Right Arrow -->
+        <div class="arrow right" onclick="scrollRight()">&#9655;</div>
+        <div class="search" class="slide-down">
+        </div>
+        <div class="banner-text">
+            <h1>
+                <span class="reveal">Ferrari<br/></span>
+                <span class="reveal-2" id="playPauseButton">812 Superfast&#9654;</span>
+            </h1>
+        </div>
+        <div class="blurred-container">
+            <div class="blurred-banner">
+                <p class="orange-text">INR 52,000,000</p>
+                <p>The 812 Superfast is a front-engine, rear-wheel-drive, 2-passenger, 2-door hatchback with a V12 engine that can produce 800 PS of power and 718 N⋅m of torque. It has a seven-speed dual-clutch transmission, a top speed of 211 mph, and a mileage of 6.7 kmpl. It is 4657 mm long, 1971 mm wide, and has a wheelbase of 2720 mm.</p>	
+            </div>
+        </div>
+    </div>
+    <script>
+        const pages = [
+            'index.html',
+            'lambohuracan.html',
+            '720s.html',
+            'ferrari.html',
+            'pagani.html',
+            'jesko.html'
+        ];
+
+        let currentPageIndex = 3;
+
+        function scroll_left() {
+    if (currentPageIndex > 0) {
+        currentPageIndex--;
+        const scrollPosition = window.innerWidth * currentPageIndex;
+        window.scroll({
+            left: scrollPosition,
+            top: 0,
+            behavior: 'smooth'
+        });
+        navigateToPage();
+    }
+}
+
+
+        function scrollRight() {
+            if (currentPageIndex < pages.length - 1) {
+                currentPageIndex++;
+                navigateToPage();
+            }
+        }
+
+        function navigateToPage() {
+    const nextPage = pages[currentPageIndex];
+    window.scrollTo({
+        left: window.innerWidth * currentPageIndex,
+        top: 0,
+        behavior: 'smooth'
+    });
+    setTimeout(() => {
+        window.location.href = nextPage;
+    }, 800);
+}
+var video = document.getElementById('backgroundVideo');
+    var playPauseButton = document.getElementById('playPauseButton');
+
+    playPauseButton.addEventListener('click', function() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+
+    </script>
+</body>
+</html>
